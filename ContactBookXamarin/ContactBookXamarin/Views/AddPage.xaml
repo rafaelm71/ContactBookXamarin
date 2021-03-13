@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContactBookXamarin.Views.AddPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding LabelNombre}" TextColor="Black" Placeholder="Ingrese el Nombre"/>
+            <Entry Text="{Binding LabelNumero}" Placeholder="Ingrese el Numero"/>
+            <Button Text="Save" BackgroundColor="Blue" Command="{Binding AddContactCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

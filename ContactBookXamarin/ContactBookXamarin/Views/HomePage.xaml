@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ContactBookXamarin.Controls"
+             x:Class="ContactBookXamarin.Views.HomePage"
+             x:Name="homePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="Add" Priority="0" Command="{Binding AddPageCommand}" />
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding Contactos}" SelectedItem="{Binding SelectedContact}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}" TextColor="Black" VerticalOptions="Start" HorizontalOptions="StartAndExpand" Style="{DynamicResource CaptionStyle}"/>
+                        <Label Text="{Binding Number}" TextColor="Black" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start" Style="{DynamicResource CaptionStyle}"/>
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" Command="{Binding Source={x:Reference homePage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"/>
+                        <MenuItem Text="More" Command="{Binding Source={x:Reference homePage}, Path=BindingContext.ToolbarMoreCommand}" CommandParameter="{Binding}"/>
+                    </ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
